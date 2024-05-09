@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map Application</title>
+  </head>
+  <body>
+    <div id="myMap" style="height:600px;width:1200px"></div>
+      <script>
+
+        // Our code goes here!
+
+        function loadMapScenario() 
+        {
+          map = new Microsoft.Maps.Map(
+                  document.getElementById('myMap'), 
+                  {
+                    center: new Microsoft.Maps.Location(43.2557, -79.8711),
+                    mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+                    zoom: 16
+                  }
+                );
+          
+          cityHall = new Microsoft.Maps.Pushpin(
+                       new Microsoft.Maps.Location(43.2557, -79.8711), 
+                       {title: "City Hall"}
+                     );
+
+          map.entities.push(cityHall);
+
+          cityHallInfo = new Microsoft.Maps.Infobox(
+                            new Microsoft.Maps.Location(43.2557, -79.8711), 
+                            { title: 'City Hall',  
+                              description: 'Hamilton City Hall. Built in 1960.', 
+                              visible: false 
+                            }
+                         );
+
+          cityHallInfo.setMap(map);
+          
+          Microsoft.Maps.Events.addHandler(cityHall, 'click', function () {
+            cityHallInfo.setOptions({ visible: true });
+          });
+
+          goCentre = new Microsoft.Maps.Pushpin(
+                       new Microsoft.Maps.Location(43.2533, -79.869), 
+                       {title: "Hamilton Go Centre", color: 'red'}
+                     );
+
+          map.entities.push(goCentre);
+
+          goCentreText = "Book a trip online: <a href='https://gotransit.com'>" +
+                         "Go Transit</a>!";
+
+          goCentreInfo = new Microsoft.Maps.Infobox(
+                            new Microsoft.Maps.Location(43.2533, -79.869), 
+                            { title: 'Hamilton Go Centre',  
+                              description: goCentreText, 
+                              visible: false 
+                            }
+                         );
+
+          goCentreInfo.setMap(map);
+          
+          Microsoft.Maps.Events.addHandler(goCentre, 'click', function () {
+            goCentreInfo.setOptions({ visible: true });
+          });
+
+
+          firstOntario = new Microsoft.Maps.Pushpin(
+                          new Microsoft.Maps.Location(43.2590, -79.8723), 
+                            {title: "First Ontario Centre", color: 'green'}
+                         );
+
+          map.entities.push(firstOntario);
+
+          firstOntarioText = "<h2>First Ontario Centre</h2>" +
+                             "Come watch a game! <br />" +
+                             "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FirstOntario_Centre_-_Hamilton%2C_ON.jpg/1200px-FirstOntario_Centre_-_Hamilton%2C_ON.jpg' width='200' />";
+
+          firstOntarioInfo = new Microsoft.Maps.Infobox(
+                            new Microsoft.Maps.Location(43.2590, -79.8723), 
+                            { title: 'First Ontario Centre',  
+                              description: firstOntarioText, 
+                              visible: false,
+                              maxHeight: 220
+                            }
+                         );
+
+          firstOntarioInfo.setMap(map);
+          
+          Microsoft.Maps.Events.addHandler(firstOntario, 'click', function () {
+            firstOntarioInfo.setOptions({ visible: true });
+          });
+
+
+        }
+
+      </script>
+      <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=TEACHER_MUST_INSERT_API_KEY_HERE&callback=loadMapScenario' async defer></script>
+  </body>
+</html>
