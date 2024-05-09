@@ -4,7 +4,7 @@
 This is a workshop intended to teach beginner programmers the basics of building a "map application" using Bing Maps in a computer lab enviornment.  
 
 ## Background 
-It was desinged for high school students that have already completed an HTML/CSS course and an introductory Java programming course.  But it is being released publicly in case it is useful for anyone else.
+It was designed for high school students that have already completed an HTML/CSS course and an introductory Java programming course.  But it is being released publicly in case it is useful for anyone else.
 
 ## Workshop Preperation
 To prepare the workshop, you will need to get a Bing Map API Key from here: https://www.bingmapsportal.com/.  You will need to insert the key into the Bing Map script tag at the bottom of the **map.html** and **map_complete.html** files.  You will need to make these files publicly available somewhere (e.g. on Google Drive, shared using a link) or give them to students in advance (e.g. on a USB drive).  You will need to add these links to the workshop step-by-step document where it is highlighted in red/yellow.  You will also need to insert the Bing Map key into the step-by-step document where the script tag from the map.html file is highlighted.
